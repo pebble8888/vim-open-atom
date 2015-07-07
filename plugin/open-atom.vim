@@ -31,3 +31,10 @@ function! s:open_atom(file)
 endfunction
 
 command! -nargs=? -complete=file OpenAtom call s:open_atom(<q-args>)
+
+let g:open_atom_silent_simojo_atom=0
+
+if !exists('g:open_atom_no_default_key_mappings')
+  noremap <Leader>o :call <SID>open_atom("")<CR>
+endif
+
